@@ -6,14 +6,21 @@
 // Our global namespace
 var mdtp = {};
 
+function display(data) {
+	$('#web-service-calls').html(data.WebServiceCallsPerSecond);
+	$('#authentication-calls').html(data.AuthenticationCallsPerSecond);
+}
+
+
 function getStatus() {
 	$.ajax({
 		url: '/metrics',
 		dataType: 'json',
-		timeout: 13000,
+		timeout: 4000,
 
 		success: function (data) {
 			console.log(data);
+			display(data);
 		},
 		error: function (jqXHR, textStatus, errorThrown) {
 			console.log(textStatus, errorThrown);
@@ -27,6 +34,6 @@ function getStatus() {
 ////////////////////////////////////////////////////////////////////////////////
 
 $(document).ready(function () {
-//	mdtp.intervalId = setInterval(getStatus, 5000);
 	getStatus();
+	mdtp.intervalId = setInterval(getStatus, 5000);
 });

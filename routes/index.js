@@ -20,13 +20,21 @@ router.get('/metrics', function(expressRequest, expressResponse, next) {
 		});
 
 		httpResponse.on('end', function () {
-			expressResponse.json(data);
+			var obj = JSON.parse(data);
+			// append status
+			obj.status = true;
+			expressResponse.json(obj);
 		});
 
 	})
 	.on('error', function(e) {
 		console.log("Error when calling external metrics site %s: %s", url, e.message);
-		expressResponse.json({status: false, statusMessage: e.message});
+		expressResponse.json({
+			status: false,
+			statusMessage: e.message,
+			AuthenticationCallsPerSecond: '----',
+			WebServiceCallsPerSecond: '----'
+			});
 	});
 });
 
