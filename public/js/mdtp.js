@@ -6,9 +6,34 @@
 // Our global namespace
 var mdtp = {};
 
+
 function display(data) {
-	$('#web-service-calls').html(data.WebServiceCallsPerSecond);
-	$('#authentication-calls').html(data.AuthenticationCallsPerSecond);
+	var prevWebServiceCalls = $('#web-service-calls').text();
+	var prevAuthenticationCalls = $('#authentication-calls').text();
+
+	// Animate the elements' value
+	$({
+		webServiceCalls: prevWebServiceCalls,
+		authenticationCalls: prevAuthenticationCalls
+
+	}).animate({
+		webServiceCalls: data.WebServiceCallsPerSecond,
+		authenticationCalls: data.AuthenticationCallsPerSecond
+	}, {
+		duration: 300,
+		easing: 'swing',
+		step: function () { // called on every step
+			// ensure to put dashes instead of NaN
+			var ws = Math.round(this.webServiceCalls);
+			ws = isNaN(ws)? '----' : ws;
+			var a = Math.round(this.authenticationCalls);
+			a = isNaN(a)? '----' : a;
+
+			// Update elements
+			$('#web-service-calls').text(ws);
+			$('#authentication-calls').text(a);
+		}
+	});
 }
 
 
