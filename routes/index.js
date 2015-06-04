@@ -9,6 +9,9 @@ router.get('/', function(req, res, next) {
 
 
 router.get('/metrics', function(expressRequest, expressResponse, next) {
+	// Should receive a JSON object like this:
+	// {"AuthenticationCallsPerSecond": 18, "WebServiceCallsPerSecond": 11}
+
 	var http = require('follow-redirects').http;
 	var url = "http://52.24.23.194/metrics";
 
