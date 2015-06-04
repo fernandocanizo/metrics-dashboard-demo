@@ -8,6 +8,8 @@ var mdtp = {};
 
 
 function display(data) {
+	// Shows new data with cool animations
+
 	var prevWebServiceCalls = $('#web-service-calls').text();
 	var prevAuthenticationCalls = $('#authentication-calls').text();
 
@@ -47,6 +49,8 @@ function display(data) {
 
 
 function getStatus() {
+	// polls new data from source
+
 	$.ajax({
 		url: '/metrics',
 		dataType: 'json',
