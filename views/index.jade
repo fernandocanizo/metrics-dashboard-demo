@@ -1,5 +1,35 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+	nav.navbar.navbar-inverse.navbar-fixed-top
+		div.container
+			div.navbar-header
+				button.navbar-toggle collapsed(type="button", data-toggle="collapse", data-target="#navbar", aria-expanded="false", aria-controls="navbar")
+					span.sr-only Toggle navigation
+					span.icon-bar
+					span.icon-bar
+					span.icon-bar
+
+			div#navbar.collapse.navbar-collapse
+				ul.nav.nav-justified
+					li.active
+						a#live-stats(href="#") Live Stats
+					li
+						a#historic(href="#") Historic Data
+
+		div.container-fluid
+			div.row.big-div
+				div.col-md-6
+					div.panel.panel-default.web-service-calls
+						div.panel-body
+							small.panel-title Web Service Calls Per Second
+							span.glyphicon.glyphicon-cloud(aria-hidden="true")
+							p.count ----
+
+
+				div.col-md-6
+					div.panel.panel-default.authentication-calls
+						div.panel-body
+							small.panel-title Authentication Calls Per Second
+							span.glyphicon.glyphicon-lock(aria-hidden="true")
+							p.count ----

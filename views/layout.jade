@@ -1,7 +1,30 @@
 doctype html
-html
-  head
-    title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
-  body
-    block content
+html(lang="en")
+	head
+		meta(charset="utf-8")
+		meta(http-equiv="X-UA-Compatible", content="IE=edge")
+		meta(name="viewport", content="width=device-width, initial-scale=1")
+
+		meta(name="description", content="Metrics Dashboard Test Project")
+		meta(name="author" content="http://flc.muriandre.com/")
+
+		link(rel="icon" href="/favicon.ico")
+
+		title= title
+
+		link(rel="stylesheet", href="/vendor/bootstrap/css/bootstrap.min.css")
+		link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Exo+2:400,900', type='text/css')
+		link(rel="stylesheet", href="/css/style.css")
+
+		// HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries
+		// [if lt IE 9]
+			script(src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js")
+			script(src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js")
+
+	body
+		block content
+
+		footer.footer
+			div.container
+				p.text-muted.pull-right By 
+					a(href="http://flc.muriandre.com/") Fernando L. Canizo
