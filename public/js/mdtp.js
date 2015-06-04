@@ -32,6 +32,15 @@ function display(data) {
 			// Update elements
 			$('#web-service-calls').text(ws);
 			$('#authentication-calls').text(a);
+		},
+		start: function () {
+			// show clear white icons once fully updated
+			$('.glyphicon').removeClass('glyphicon-animated');
+		},
+		complete: function () {
+			// Animate icons to indicate value aging
+			// Start white and get black
+			$('.glyphicon').addClass('glyphicon-animated');
 		}
 	});
 }

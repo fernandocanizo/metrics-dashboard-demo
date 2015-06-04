@@ -124,6 +124,13 @@ body {
 	outline: none;
 }
 
+.glyphicon-animated {
+	color: #000;
+	transition: color 5s;
+	transition-delay: 0.5s;
+	transition-duration: 5s;
+}
+
 .web-service-calls {
 	background-color:#00acee;
 }
